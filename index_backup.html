@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="MediaOnline International Pte Ltd" content="MediaOnline" />
+    <title>Queue Management System</title>
+
+  <!--- JS --->
+  <script src="js/jquery-1.12.4.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/modernizr.min.js"></script>
+  <script src="js/sweetalert.min.js"></script>
+  <script src="js/respond.js"></script>
+  <script src="js/main.js"></script>
+
+  <!--- CSS --->
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="css/sweetalert.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link href="css/font-awesome.min.css" media="screen,projection" type="text/css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Bree+Serif" rel="stylesheet">
+</head>
+
+<body>
+<!-- Header/Title -->
+ <nav class="navbar navbar-fixed-top">
+   <center><h5>Queue Management System</h5></center>
+ </nav>
+<!-- End Title -->
+
+<!-- Content -->
+<div class="container">
+	<div class="row">
+		 <!-- Content Box -->
+		 <div class="col-xs-12 col-sm-6 col-md-6 contentBox">
+			<div class="row">
+        <!-- Display Queue Number -->
+				 <div class="col-xs-6 col-sm-5 col-md-5">
+           <h4> &ensp;&ensp;&ensp; Now Serving </h4>
+         </div>
+				 <div class="col-xs-6 col-sm-5 col-md-5">
+           <h4 style="float:right;"> Actions </h4>
+         </div>
+			</div> <!--- /row --->
+
+			<div class="row">
+				 <div class="col-xs-12 col-sm-12 col-md-12">
+					<div id="queueBox"></div>
+            <div class="legendText">
+              <p> &ensp;&ensp;&ensp;&ensp;<em><u>Legend</u></em></p>
+                <ul>
+                  <li><em>Maximum numbers that can be entered into the system is 3</em></li>
+                  <li><em>Please click on complete button to clear number off the system</em></li>
+                </ul>
+            </div>
+				 </div>
+			</div> <!--- /row --->
+    </div> <!--- /contentBox --->
+    <!-- End Display Queue Number -->
+
+      <!--- Stats Button ---->
+      <!-- <div class="row">
+         <div class="col-sm-12">
+            <button type="button" class="btn btn-default" id="generateStats" style="float:right; margin-top: 2%; margin-bottom: 3%;">Generate Statistics</button>
+          </div>
+      </div> -->
+
+
+		 <!-- DialPad -->
+     <div class="row">
+		  <div class="col-xs-12 col-sm-6 col-md-6">
+			  <div id="wrapper" class="contentBox dialpad compact" >
+				 <div class="number" id="queueNumber"></div>
+				   <div class="dials">
+					  <ol>
+						  <li class="digits"><p><strong>1</strong></p></li>
+						  <li class="digits"><p><strong>2</strong></p></li>
+						  <li class="digits"><p><strong>3</strong></p></li>
+						  <li class="digits"><p><strong>4</strong></p></li>
+						  <li class="digits"><p><strong>5</strong></p></li>
+						  <li class="digits"><p><strong>6</strong></p></li>
+						  <li class="digits"><p><strong>7</strong></p></li>
+						  <li class="digits"><p><strong>8</strong></p></li>
+						  <li class="digits"><p><strong>9</strong></p></li>
+						  <li class="digits"><p><strong>CLR</strong></p></li>
+						  <li class="digits"><p><strong>0</strong></p></li>
+						  <li class="digits"><p><strong>DEL</strong></p></li>
+					  </ol>
+            <div class="col-xs-12 col-lg-12 col-sm-12">
+              <button type="submit" class="btn-large btn-block" id="submitQueue" style="margin-bottom:20px; height:70px; font-size: 35px; font-weight: 500;">ENTER</button>
+            </div>
+				</div>
+			</div>
+		 </div><!-- End DialPad -->
+   </div> <!--- End of Row --->
+	</div><!--- End of Row --->
+</div><!-- End of container -->
+
+<!-- Footer -->
+<footer class="footer col-lg-12 col-md-12 col-sm-12 col-sm-12">
+  <div class="container col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <p style="color: white; float: right;">© MediaOnline International 2017</p>
+  </div>
+</footer>
+<!-- End Footer -->
+
+</body>
+</html>

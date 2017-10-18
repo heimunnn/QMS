@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="MediaOnline International Pte Ltd" content="MediaOnline" />
+  <title>Queue Management System Display</title>
+
+  <!--- CSS --->
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="css/sweetalert.css">
+  <link rel="stylesheet" href="css/style2.css">
+  <link href="css/font-awesome.min.css" media="screen,projection" type="text/css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Bree+Serif" rel="stylesheet">
+</head>
+
+<body>
+<div class="forTv">
+  <!--- Header  --->
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <center><img src="images/servingnow.png" id="servingNowTv"/></center>
+  </div>
+
+  <!--- Serving Numbers --->
+  <div class="container">
+    <div class="row">
+      <div id="Foo">
+        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 queueNumber imageContainer"><div class="queueNumber0"></div></div>
+        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 queueNumber imageContainer"><div class="queueNumber1"></div></div>
+        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 queueNumber imageContainer"><div class="queueNumber2"></div></div>
+      </div> <!--- /End of Foo --->
+    </div> <!--- /End of Row --->
+  </div> <!--- /End of Container-Fluid --->
+
+  <footer>
+    <div>
+      <p class="disclaimer"> * Numbers displayed may not be called in sequence.</p>
+      <p class="copyright"> © MediaOnline International 2017 </p>
+    </div>
+  </footer>
+</div> <!--- /forTv --->
+
+<!--- For Tablets ---------------------------------------------------->
+<div class="forTablet">
+  <!--- Header  --->
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <center><img src="images/servingnow.png" id="servingNowTablet"/></center>
+  </div>
+
+  <!--- Serving Numbers --->
+  <div id="Foo">
+    <div class="container">
+      <div class="row">
+			<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 ">
+			  <div class="queueNumber imageContainer">
+				<div class="queueNumber0"></div>
+			  </div>
+			</div>
+			<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+			  <div class=" queueNumber imageContainer">
+				<div class="queueNumber1"></div>
+			  </div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+			  <div class=" queueNumber imageContainer">
+				<div class="queueNumber2"></div>
+			  </div>
+			</div>
+			<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+			  <div class=" queueNumber imageContainer">
+				<div class="queueNumber3"></div>
+			  </div>
+			</div>
+		</div> <!--- /row --->
+		
+    </div> <!--- /Container --->
+  </div> <!--- /End of Foo --->
+
+<footer>
+  <div>
+    <p class="disclaimer"> * Numbers displayed may not be called in sequence.</p>
+    <p  class="copyright"> © MediaOnline International 2017 </p>
+  </div>
+</footer>
+
+</div> <!--- /forTablet --->
+</body>
+
+
+
+<!--- Scripting ------------------------------------------------>
+  <!--- JS --->
+  <script src="js/jquery-1.12.4.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/modernizr.min.js"></script>
+  <script src="js/sweetalert.min.js"></script>
+  <script src="js/respond.js"></script>
+  <script src="js/jquery-ui.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/display.js"></script>
+
+</html>

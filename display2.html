@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="MediaOnline International Pte Ltd" content="MediaOnline" />
+  <title>Queue Management System Display</title>
+
+  <!--- CSS --->
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="css/sweetalert.css">
+  <link rel="stylesheet" href="css/style3.css">
+  <link href="css/font-awesome.min.css" media="screen,projection" type="text/css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Bree+Serif" rel="stylesheet">
+
+   <!--- JS --->
+  <script src="js/jquery-1.12.4.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/modernizr.min.js"></script>
+  <script src="js/sweetalert.min.js"></script>
+  <script src="js/respond.js"></script>
+  <script src="js/jquery-ui.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/display.js"></script>
+
+</head>
+
+<body>
+	<div class="container">
+
+		 <!--- Serving Numbers --->
+		<div class="row">
+			<div class="boxes">
+				<div class="col-md-3 col-lg-3 col-md-offset-2 col-lg-offset-2"><center><label class="queueNumber0 queueNumber"></label></center></div>
+				<div class="col-md-3 col-lg-3"><center><label class="queueNumber1 queueNumber"></label></center></div>
+				<div class="col-md-3 col-lg-3"><center><label class="queueNumber2 queueNumber"></label></center></div>
+			</div>
+		</div>
+	</div>
+
+  <input type="hidden" id="queueNumber0" />
+  <input type="hidden" id="queueNumber1" />
+  <input type="hidden" id="queueNumber2" />
+
+  </body>
+</html>
