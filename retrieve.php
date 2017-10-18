@@ -13,7 +13,7 @@
 							"timeComplete"     => $row['TimeComplete'],
 							"status"     => $row['Status'],
 							"complete"     => $row['Complete'],
-							'new' 				=> $row['New']
+							'alarm' 				=> $row['New']
 						);
 			 $jsonData[] = $data;
 		}

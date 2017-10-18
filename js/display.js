@@ -1,5 +1,6 @@
 
   $(document).ready(function() {
+	  alert("hello world");
 	//Load first
 	$.ajax
 	   ({
@@ -10,6 +11,7 @@
 			//alert(response.length);
 			for(i = 0; i < response.length; i++)
 			{
+				alert("hello world");
 				$('.queueNumber'+i).text(response[i].queueNumber);
 				$('#queueNumber'+i).val(response[i].queueNumber);
 				if(response[i].status == 'TRUE')
@@ -35,7 +37,7 @@
 				
 				
 				// Manipulate and append it to the Queue Board
-				if(response[i].new == 'True')
+				if(response[i].alarm == 'True')
 				{
 				  new Audio("audio/doorbell-1.wav").play();
 				  $.ajax
@@ -194,5 +196,5 @@
 		 $('#queueNumber4').val("");
 		 $('#queueNumber5').val("");
 	 }
-	 
+	 z
   });
