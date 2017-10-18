@@ -57,7 +57,7 @@ $(document).ready(function() {
 			}
       var queueNumber = parseInt($('#queueNumber').text());
 	  	var counter;
-      	if ($("#queueBox > div").length > 2)
+      	if ($("#queueBox > div").length > 5)
         {
         	swal("Please delete previous numbers before entering new numbers!");
 			  	return;

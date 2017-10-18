@@ -50,14 +50,20 @@
 				var queueNumber0 = $("#queueNumber0").val();
 				var queueNumber1 = $("#queueNumber1").val();
 				var queueNumber2 = $("#queueNumber2").val();
+				var queueNumber3 = $("#queueNumber3").val();
+				var queueNumber4 = $("#queueNumber4").val();
+				var queueNumber5 = $("#queueNumber5").val();
 				
-				var numbers = [queueNumber0, queueNumber1, queueNumber2];				
+				var numbers = [queueNumber0, queueNumber1, queueNumber2, queueNumber3, queueNumber4, queueNumber5];				
 				removeCompleteNumber(numbers, response)
 				
 				
 				if(response[i].queueNumber != queueNumber0 &&
 				   response[i].queueNumber != queueNumber1 &&
-				   response[i].queueNumber != queueNumber2 )
+				   response[i].queueNumber != queueNumber2 &&
+				   response[i].queueNumber != queueNumber3 &&
+				   response[i].queueNumber != queueNumber4 &&
+				   response[i].queueNumber != queueNumber5)
 				{					
 				  $('.queueNumber'+i).text(response[i].queueNumber);	
 				  $('#queueNumber'+i).val(response[i].queueNumber);				  
@@ -130,10 +136,49 @@
 					$('#queueNumber2').val("");
 				}
 			}
-			if($('#queueNumber2').val() == diff1[p] || $('#queueNumber2').text() == "" || $('#queueNumber2').text() == null)
+			
+			if($('#queueNumber2').val() == diff1[p])
 			{
-				$('#queueNumber2').val("");
 				$('.queueNumber2').empty();
+				$('#queueNumber2').val("");
+				if($('#queueNumber3').val() != null || $('#queueNumber3').val() != "")
+				{
+					$('.queueNumber2').text($('#queueNumber3').val());
+					$('#queueNumber2').val($('#queueNumber3').val());
+					$('.queueNumber3').empty();
+					$('#queueNumber3').val("");
+				}
+			}
+			
+			if($('#queueNumber3').val() == diff1[p])
+			{
+				$('.queueNumber3').empty();
+				$('#queueNumber3').val("");
+				if($('#queueNumber4').val() != null || $('#queueNumber4').val() != "")
+				{
+					$('.queueNumber3').text($('#queueNumber4').val());
+					$('#queueNumber3').val($('#queueNumber4').val());
+					$('.queueNumber4').empty();
+					$('#queueNumber4').val("");
+				}
+			}
+			
+			if($('#queueNumber4').val() == diff1[p])
+			{
+				$('.queueNumber4').empty();
+				$('#queueNumber4').val("");
+				if($('#queueNumber5').val() != null || $('#queueNumber5').val() != "")
+				{
+					$('.queueNumber4').text($('#queueNumber5').val());
+					$('#queueNumber4').val($('#queueNumber5').val());
+					$('.queueNumber5').empty();
+					$('#queueNumber5').val("");
+				}
+			}		
+			if($('#queueNumber5').val() == diff1[p] || $('#queueNumber5').text() == "" || $('#queueNumber5').text() == null)
+			{
+				$('#queueNumber5').val("");
+				$('.queueNumber5').empty();
 			}
 				
 		}
@@ -145,6 +190,9 @@
 		 $('#queueNumber0').val("");
 		 $('#queueNumber1').val("");
 		 $('#queueNumber2').val("");
+		 $('#queueNumber3').val("");
+		 $('#queueNumber4').val("");
+		 $('#queueNumber5').val("");
 	 }
 	 
   });
