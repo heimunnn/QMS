@@ -21,7 +21,7 @@ $(document).ready(function() {
   	 });
 
      $(".digits").click(function(){
-       var value =  $(this).children('p').children('strong').text();
+       var value =  $(this).children('.digit').children('p').children('strong').text();
        var queueNumber = $("#queueNumber");
 
         if(value == 1)
@@ -57,7 +57,7 @@ $(document).ready(function() {
 			}
       var queueNumber = parseInt($('#queueNumber').text());
 	  	var counter;
-      	if ($("#queueBox > div").length > 5)
+      	if ($("#queueBox > div").length > 4)
         {
         	swal("Please delete previous numbers before entering new numbers!");
 			  	return;

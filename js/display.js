@@ -35,6 +35,7 @@ $(document).ready(function() {
 				if(response[i].alarm == 'True')
 				{
 				  new Audio("audio/doorbell-1.wav").play();
+				  $(".queueNumber"+i).effect( "pulsate", {times:5}, 3000 );
 				  $.ajax
 					   ({
 						  type:'post',
@@ -49,17 +50,15 @@ $(document).ready(function() {
 				var queueNumber2 = $("#queueNumber2").val();
 				var queueNumber3 = $("#queueNumber3").val();
 				var queueNumber4 = $("#queueNumber4").val();
-				var queueNumber5 = $("#queueNumber5").val();
 
-				var numbers = [queueNumber0, queueNumber1, queueNumber2, queueNumber3, queueNumber4, queueNumber5];
+				var numbers = [queueNumber0, queueNumber1, queueNumber2, queueNumber3, queueNumber4];
 				removeCompleteNumber(numbers, response)
 
 				if(response[i].queueNumber != queueNumber0 &&
 				   response[i].queueNumber != queueNumber1 &&
 				   response[i].queueNumber != queueNumber2 &&
 				   response[i].queueNumber != queueNumber3 &&
-				   response[i].queueNumber != queueNumber4 &&
-				   response[i].queueNumber != queueNumber5)
+				   response[i].queueNumber != queueNumber4)
 				{
 				  $('.queueNumber'+i).text(response[i].queueNumber);
 				  $('#queueNumber'+i).val(response[i].queueNumber);
@@ -118,6 +117,20 @@ $(document).ready(function() {
 					$('.queueNumber2').empty();
 					$('#queueNumber2').val("");
 				}
+				if($('#queueNumber3').val() != null || $('#queueNumber3').val() != "")
+				{
+					$('.queueNumber2').text($('#queueNumber3').val());
+					$('#queueNumber2').val($('#queueNumber3').val());
+					$('.queueNumber3').empty();
+					$('#queueNumber3').val("");
+				}
+				if($('#queueNumber4').val() != null || $('#queueNumber4').val() != "")
+				{
+					$('.queueNumber3').text($('#queueNumber4').val());
+					$('#queueNumber3').val($('#queueNumber4').val());
+					$('.queueNumber4').empty();
+					$('#queueNumber4').val("");
+				}
 			}
 			if($('#queueNumber1').val() == diff1[p])
 			{
@@ -130,6 +143,21 @@ $(document).ready(function() {
 					$('.queueNumber2').empty();
 					$('#queueNumber2').val("");
 				}
+				if($('#queueNumber3').val() != null || $('#queueNumber3').val() != "")
+				{
+					$('.queueNumber2').text($('#queueNumber3').val());
+					$('#queueNumber2').val($('#queueNumber3').val());
+					$('.queueNumber3').empty();
+					$('#queueNumber3').val("");
+				}
+				if($('#queueNumber4').val() != null || $('#queueNumber4').val() != "")
+				{
+					$('.queueNumber3').text($('#queueNumber4').val());
+					$('#queueNumber3').val($('#queueNumber4').val());
+					$('.queueNumber4').empty();
+					$('#queueNumber4').val("");
+				}
+
 			}
 
 			if($('#queueNumber2').val() == diff1[p])
@@ -142,6 +170,13 @@ $(document).ready(function() {
 					$('#queueNumber2').val($('#queueNumber3').val());
 					$('.queueNumber3').empty();
 					$('#queueNumber3').val("");
+				}
+				if($('#queueNumber4').val() != null || $('#queueNumber4').val() != "")
+				{
+					$('.queueNumber3').text($('#queueNumber4').val());
+					$('#queueNumber3').val($('#queueNumber4').val());
+					$('.queueNumber4').empty();
+					$('#queueNumber4').val("");
 				}
 			}
 
@@ -158,22 +193,10 @@ $(document).ready(function() {
 				}
 			}
 
-			if($('#queueNumber4').val() == diff1[p])
+			if($('#queueNumber4').val() == diff1[p] || $('#queueNumber4').text() == "" || $('#queueNumber4').text() == null)
 			{
-				$('.queueNumber4').empty();
 				$('#queueNumber4').val("");
-				if($('#queueNumber5').val() != null || $('#queueNumber5').val() != "")
-				{
-					$('.queueNumber4').text($('#queueNumber5').val());
-					$('#queueNumber4').val($('#queueNumber5').val());
-					$('.queueNumber5').empty();
-					$('#queueNumber5').val("");
-				}
-			}
-			if($('#queueNumber5').val() == diff1[p] || $('#queueNumber5').text() == "" || $('#queueNumber5').text() == null)
-			{
-				$('#queueNumber5').val("");
-				$('.queueNumber5').empty();
+				$('.queueNumber4').empty();
 			}
 		}
 	 }
@@ -185,6 +208,5 @@ $(document).ready(function() {
 		 $('#queueNumber2').val("");
 		 $('#queueNumber3').val("");
 		 $('#queueNumber4').val("");
-		 $('#queueNumber5').val("");
 	 }
   });

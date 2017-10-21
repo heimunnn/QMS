@@ -184,8 +184,13 @@ ol {
 }
 
 .dialpad .dials .digits:active{
+
+}
+
+.digit:active{
   background:#00caf2;
   border-top-color:#b2f2ff;
+  height: 95px;
 }
 
 .compact .dials .digits p{
@@ -266,6 +271,10 @@ ol {
   height: 55px;
   background-color: #888888;
   font-weight: 100;
+}
+
+.dialpad-row {
+   padding-left: 50px;
 }
 
 /* Large desktops and laptops */

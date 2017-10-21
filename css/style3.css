@@ -224,10 +224,7 @@ ol {
 
 .footer {
   position: absolute;
-  bottom: 0;
   width: 100%;
-  /* Set the fixed height of the footer here */
-  height: 55px;
   background-color: #0899D7;
   font-weight: 100;
 }
