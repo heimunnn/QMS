@@ -2,6 +2,7 @@
    main.js
    ========================================================================== */
 var arr = [];
+var counter;
 
 $(document).ready(function() {
 	  	  
@@ -48,7 +49,7 @@ function initEventHandler() {
 			return;
 		}
 		var queueNumber = parseInt($('#queueNumber').text());
-	  	var counter;
+	  	
 		
       	if ($("#queueBox > div").length > 4)
         {
