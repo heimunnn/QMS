@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="MediaOnline International Pte Ltd" content="MediaOnline" />
+  <title>Queue Management System Display</title>
+
+  <!--- CSS --->
+  <link rel="stylesheet" href="../../css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="../../css/sweetalert.css">
+  <link rel="stylesheet" href="../../css/style3.css">
+  <link href="../../css/font-awesome.min.css" media="screen,projection" type="text/css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Bree+Serif" rel="stylesheet">
+
+</head>
+
+<body>
+	<div class="container">
+		<!--- Header  --->
+		<div class="row">
+		  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+			     <center><img src="../../images/servingnow.png" class="img-responsive"/></center>
+		  </div>
+		</div>
+		<br />
+
+		<!--- Serving Numbers --->
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 imageContainer"><center><label class="queueNumber0 queueNumber"></label></center></div>
+		</div><!-- /row-->
+		
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 imageContainer"><center><label class="queueNumber1 queueNumber"></label></center></div>
+		</div><!-- /row-->
+		
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 imageContainer"><center><label class="queueNumber2 queueNumber"></label></center></div>
+		</div><!-- /row-->
+		
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 imageContainer"><center><label class="queueNumber3 queueNumber"></label></center></div>
+		</div><!-- /row-->
+		
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 imageContainer"><center><label class="queueNumber4 queueNumber"></label></center></div>
+		</div><!-- /row-->
+		
+		<br />
+
+	</div> <!--- /Container --->
+
+	 <!--- Footer ---->
+	<div class="container-fluid">
+		 <div class="row footer">
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+					<p class="disclaimer"> * Numbers displayed may not be called in sequence.</p>
+				</div>
+		 </div>
+	</div>
+
+
+<input type="hidden" id="queueNumber0" />
+<input type="hidden" id="queueNumber1" />
+<input type="hidden" id="queueNumber2" />
+<input type="hidden" id="queueNumber3" />
+<input type="hidden" id="queueNumber4" />
+<input type="hidden" id="queueNumber5" />
+
+<input type="hidden" id="storeId" value="11" />
+
+
+<!--- JS --->
+<script src="../../js/jquery-1.12.4.js"></script>
+<script src="../../js/bootstrap.min.js"></script>
+<script src="../../js/modernizr.min.js"></script>
+<script src="../../js/sweetalert.min.js"></script>
+<script src="../../js/respond.js"></script>
+<script src="../../js/jquery-ui.js"></script>
+<script src="../../js/display.js"></script>
+
+</body>
+
+</html>

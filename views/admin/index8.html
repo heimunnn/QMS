@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="MediaOnline International Pte Ltd" content="MediaOnline" />
+  <title>Queue Management System</title>
+
+  <!--- CSS --->
+  <link rel="stylesheet" href="../../css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="../../css/sweetalert.css">
+  <link rel="stylesheet" href="../../css/style.css">
+  <link href="../../css/font-awesome.min.css" media="screen,projection" type="text/css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Bree+Serif" rel="stylesheet">
+</head>
+
+<body>
+<!-- Header/Title -->
+<nav class="navbar navbar-fixed-top">
+  <h5><center>Queue Management System</center></h5>
+</nav>
+<!-- End Title -->
+
+<!-- Content -->
+<div class="container">
+  <div class="row">
+    <!-- Content Box -->
+    <div class="col-xs-12 col-sm-6 col-md-6">
+      <div class="contentBox">
+        <div class="row">
+        <!-- Display Queue Number -->
+				 <div class="col-xs-6 col-sm-5 col-md-5">
+           <h4> &ensp;&ensp;&ensp; Now Serving </h4>
+         </div>
+				 <div class="col-xs-6 col-sm-5 col-md-5">
+           <h4 style="float:right;"> Actions </h4>
+         </div>
+			</div> <!--- /row --->
+
+			<div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12">
+          <div id="queueBox"></div>
+          <div class="legendText">
+            <p> &ensp;&ensp;&ensp;&ensp;<em><u>Legend</u></em></p>
+            <ul>
+              <li><em>Maximum numbers that can be entered into the system is 3</em></li>
+              <li><em>Please click on complete button to clear number off the system</em></li>
+            </ul>
+          </div>
+				 </div>
+			</div> <!--- /row --->
+
+    </div><!--- /contentBox --->
+  </div><!--- /col-6 --->
+  <!-- End Display Queue Number -->
+
+	<!-- DialPad -->
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-md-6">
+      <div id="wrapper" class="contentBox dialpad compact">
+        <div class="number" id="queueNumber"></div>
+			<div class="dials center-block">
+				<div class="row dialpad-row">
+					<div class="col-xs-4 col-lg-4 col-sm-4 col-md-4 digits">
+						<div class="digit"><p><strong>1</strong></p></div>
+					</div>
+					<div class="col-xs-4 col-lg-4 col-sm-4 col-md-4 digits">
+						<div class="digit"><p><strong>2</strong></p></div>
+					</div>
+					<div class="col-xs-4 col-lg-4 col-sm-4 col-md-4 digits">
+						<div class="digit"><p><strong>3</strong></p></div>
+					</div>				
+				</div>			
+				<div class="row dialpad-row">
+					<div class="col-xs-4 col-lg-4 col-sm-4 col-md-4 digits">
+						<div class="digit"><p><strong>4</strong></p></div>
+					</div>
+					<div class="col-xs-4 col-lg-4 col-sm-4 col-md-4 digits">
+						<div class="digit"><p><strong>5</strong></p></div>
+					</div>
+					<div class="col-xs-4 col-lg-4 col-sm-4 col-md-4 digits">
+						<div class="digit"><p><strong>6</strong></p></div>
+					</div>				
+				</div>			
+				<div class="row dialpad-row">
+					<div class="col-xs-4 col-lg-4 col-sm-4 col-md-4 digits">
+						<div class="digit"><p><strong>7</strong></p></div>
+					</div>
+					<div class="col-xs-4 col-lg-4 col-sm-4 col-md-4 digits">
+						<div class="digit"><p><strong>8</strong></p></div>
+					</div>
+					<div class="col-xs-4 col-lg-4 col-sm-4 col-md-4 digits">
+						<div class="digit"><p><strong>9</strong></p></div>
+					</div>				
+				</div>			
+				<div class="row dialpad-row">
+					<div class="col-xs-4 col-lg-4 col-sm-4 col-md-4 digits">
+						<div class="digit"><p><strong>CLR</strong></p></div>
+					</div>
+					<div class="col-xs-4 col-lg-4 col-sm-4 col-md-4 digits">
+						<div class="digit"><p><strong>0</strong></p></div>
+					</div>
+					<div class="col-xs-4 col-lg-4 col-sm-4 col-md-4 digits">
+						<div class="digit"><p><strong>DEL</strong></p></div>
+					</div>				
+				</div>
+			
+			  
+			  <div class="col-xs-12 col-lg-12 col-sm-12">
+				<button type="submit" class="btn-large btn-block" id="submitQueue">ENTER</button>
+			  </div>
+			</div> <!--- /Dials --->
+		</center>
+			<!--- End of DialPad --->
+
+			</div> <!--- /wrapper --->
+    </div><!-- /col-6 -->
+  </div> <!--- /Row --->
+</div><!--- /Row --->
+</div><!-- /container -->
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container-fluid">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <p style="color: white; float: right;">© MediaOnline International 2017</p>
+    </div>
+  </div>
+</footer>
+<!-- End Footer -->
+ 
+ <input type="hidden" id="storeId" value="8" />
+
+  <!--- JS --->
+  <script src="../../js/jquery-1.12.4.js"></script>
+  <script src="../../js/bootstrap.min.js"></script>
+  <script src="../../js/modernizr.min.js"></script>
+  <script src="../../js/sweetalert.min.js"></script>
+  <script src="../../js/respond.js"></script>
+  <script src="../../js/main.js"></script>
+
+
+</body>
+</html>

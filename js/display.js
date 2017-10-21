@@ -1,24 +1,6 @@
 $(document).ready(function() {
 	//Load first
-	$.ajax
-	   ({
-		  type:'post',
-		  url:'retrieve.php',
-		  dataType: "json",
-		  success:function(response){
-			//alert(response.length);
-			for(i = 0; i < response.length; i++)
-			{
-				$('.queueNumber'+i).text(response[i].queueNumber);
-				$('#queueNumber'+i).val(response[i].queueNumber);
-				if(response[i].status == 'TRUE')
-				{
-					// Make the Box flash or highlight background
-					$("#queueNumber"+i).effect( "pulsate", {times:5}, 3000 );
-				}
-			 }
-	    }
-	 });
+	retrieveStore();
 
 	//Load every 2minutes;
 	var ajax_call =  function() {
@@ -26,7 +8,8 @@ $(document).ready(function() {
 	$.ajax
 	   ({
 		  type:'post',
-		  url:'retrieve.php',
+		  url:'/QueueManagementSystem/QMS/php/retrieve.php',
+		  data: {storeId: $("#storeId").val()},
 		  dataType: "json",
 		  success:function(response) {
 			for(i = 0; i < response.length; i++)
@@ -39,9 +22,9 @@ $(document).ready(function() {
 				  $.ajax
 					   ({
 						  type:'post',
-						  url:'updateNew.php',
+						  url:'/QueueManagementSystem/QMS/php/updateNew.php',
 						  dataType: "json",
-						  data: {queueNumber: response[i].queueNumber}
+						  data: {storeId: $("#storeId").val(), queueNumber: response[i].queueNumber}
 					 });
 				}
 
@@ -76,8 +59,38 @@ $(document).ready(function() {
 
 	 });
 	}
-	 setInterval(ajax_call, 8000);
-
+	setInterval(ajax_call, 8000);
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 function retrieveStore()
+	 {		
+		$.ajax ({
+		  type:'post',
+		  url:'/QueueManagementSystem/QMS/php/retrieve.php',
+		  data: {storeId: $("#storeId").val()},
+		  dataType: "json",
+		  success:function(response){
+			//alert(response.length);
+			for(i = 0; i < response.length; i++)
+			{
+				$('.queueNumber'+i).text(response[i].queueNumber);
+				$('#queueNumber'+i).val(response[i].queueNumber);
+				if(response[i].status == 'TRUE')
+				{
+					// Make the Box flash or highlight background
+					$("#queueNumber"+i).effect( "pulsate", {times:5}, 3000 );
+				}
+			 }
+	    }
+	 });
+	 
+	}
+	 
 	 function diff(a1, a2)
 	 {
 		  return a1.concat(a2).filter(function(val, index, arr)
@@ -86,7 +99,7 @@ $(document).ready(function() {
 		  });
 	 }
 
-   // Remove queue numbers upon number complete
+     // Remove queue numbers upon number complete
 	 function removeCompleteNumber(numbers, response)
 	 {
 		 var array = new Array();

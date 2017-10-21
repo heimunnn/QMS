@@ -1,26 +1,18 @@
 /* ==========================================================================
    main.js
    ========================================================================== */
+var arr = [];
 
 $(document).ready(function() {
-	var arr = [];
-  $.ajax
-  	   ({
-  		  type:'post',
-  		  url:'retrieve.php',
-  		  dataType: "json",
-  		  success:function(response) {
-  			// Manipulate and append it to the Queue Board
+	  	  
+	  retrieveStore();
+	  initEventHandler();
+       
+});
 
-  			for(i = 0; i < response.length; i++)
-  			{
-  				$('#queueBox').append('<div id="div'+ response[i].queueNumber +'"><div class="row"><div class="col-xs-7 col-sm-7 col-md-7">' + response[i].queueNumber +  '</div><div class="col-xs-5 col-sm-5 col-md-5"> <img src="images/recall_btn.png" id="recallBtn" onclick="recallNumber('+response[i].queueNumber+')"/></button>' + ' ' + '<img src="images/complete_btn.png" id="deleteBtn" onclick="deleteQueueNumber('+response[i].queueNumber+')"/></div></div></div>');
-					arr[i] = response[i].queueNumber;
-  			}
-  	    }
-  	 });
 
-     $(".digits").click(function(){
+function initEventHandler() {
+	$(".digits").click(function(){
        var value =  $(this).children('.digit').children('p').children('strong').text();
        var queueNumber = $("#queueNumber");
 
@@ -49,63 +41,90 @@ $(document).ready(function() {
         if(value == "DEL")
             queueNumber.text(queueNumber.text().slice(0, -1));
         });
-
-    $("#submitQueue").click(function() {
-			if($('#queueNumber').text() == ""){
-				swal("Please enter a number!");
-				return;
-			}
-      var queueNumber = parseInt($('#queueNumber').text());
+		
+	$("#submitQueue").click(function() {
+		if($('#queueNumber').text() == ""){
+			swal("Please enter a number!");
+			return;
+		}
+		var queueNumber = parseInt($('#queueNumber').text());
 	  	var counter;
+		
       	if ($("#queueBox > div").length > 4)
         {
         	swal("Please delete previous numbers before entering new numbers!");
-			  	return;
+			return;
         }
-				// Validation for entering same number into queuebox
-				for(i = 0; i < arr.length; i++)
-				{
-					if(parseInt(arr[i]) == queueNumber)
-					{
-						swal("Same number entered!");
-						$('#queueNumber').empty();
-						return;
-					}
-					counter = i;
-				}
+		
+		// Validation for entering same number into queuebox
+		for(i = 0; i < arr.length; i++)
+		{
+			if(parseInt(arr[i]) == queueNumber)
+			{
+				swal("Same number entered!");
+				$('#queueNumber').empty();
+				return;
+			}
+			counter = i;
+		}
 
-			  //function for adding to DB
-				 $.ajax({
-					 type: 'POST',
-					 url: 'insert.php',
-					 dataType: 'json',
-					 data: {queueNumber: queueNumber},
-					 //if successful, do something
-					 success: function(response){
-						   counter++;
-						   arr[counter] = queueNumber;
-						   $('#queueBox').append('<div id="div'+ queueNumber +'"><div class="row"><div class="col-xs-7 col-sm-7 col-md-7">' + queueNumber +  ' </div><div class="col-xs-5 col-sm-5 col-md-5"><img src="images/recall_btn.png" id="recallBtn" onclick="recallNumber('+queueNumber+')"/></button>' + ' ' + '<img src="images/complete_btn.png" id="deleteBtn" onclick="deleteQueueNumber('+queueNumber+')"/> </div></div></div>');
-						   $('#queueNumber').empty();
-						   swal(response.status);
-					}
-				});
+	     addQueueNumber(queueNumber); 
       });
-			//generating stats - Duration to collect food etc;
-			$("#generateStats").click(function(){
-				window.location.href='Statistics.html';
+	  
+	//generating stats - Duration to collect food etc;
+	 $("#generateStats").click(function(){
+		window.location.href='Statistics.html';
 	 });
+	 
 	 $("#backBtn").click(function(){
 		 window.location.href='index4.html';
 	 });
-});
+}
 
+function retrieveStore() {
+  $.ajax
+  	   ({
+  		  type:'post',
+  		  url:'/QueueManagementSystem/QMS/php/retrieve.php',
+		  data: {storeId: $("#storeId").val()},
+  		  dataType: "json",
+  		  success:function(response) {
+  			// Manipulate and append it to the Queue Board
+
+  			for(i = 0; i < response.length; i++)
+  			{
+  				$('#queueBox').append('<div id="div'+ response[i].queueNumber +'"><div class="row"><div class="col-xs-7 col-sm-7 col-md-7">' + response[i].queueNumber +  '</div><div class="col-xs-5 col-sm-5 col-md-5"> <img src="../../images/recall_btn.png" id="recallBtn" onclick="recallNumber('+response[i].queueNumber+')"/></button>' + ' ' + '<img src="../../images/complete_btn.png" id="deleteBtn" onclick="deleteQueueNumber('+response[i].queueNumber+')"/></div></div></div>');
+					arr[i] = response[i].queueNumber;
+  			}
+  	    }
+  	 });
+}
+
+// Add Queue Number to DB
+function addQueueNumber(queueNumber) {
+	//function for adding to DB
+	 $.ajax({
+		 type: 'POST',
+		 url: '/QueueManagementSystem/QMS/php/insert.php',
+		 dataType: 'json',
+		 data: {storeId: $("#storeId").val(), queueNumber: queueNumber},
+		 //if successful, do something
+		 success: function(response){
+			   counter++;
+			   arr[counter] = queueNumber;
+			   $('#queueBox').append('<div id="div'+ queueNumber +'"><div class="row"><div class="col-xs-7 col-sm-7 col-md-7">' + queueNumber +  ' </div><div class="col-xs-5 col-sm-5 col-md-5"><img src="../../images/recall_btn.png" id="recallBtn" onclick="recallNumber('+queueNumber+')"/></button>' + ' ' + '<img src="../../images/complete_btn.png" id="deleteBtn" onclick="deleteQueueNumber('+queueNumber+')"/> </div></div></div>');
+			   $('#queueNumber').empty();
+			   swal(response.status);
+		}
+	});
+}
 // Deleting Queue Number
 function deleteQueueNumber(queueNumber){
   jQuery.ajax({
       type:'post',
-      url: "complete.php",
+      url: "/QueueManagementSystem/QMS/php/complete.php",
       dataType: "json",
-      data: {queueNumber: queueNumber},
+      data: {storeId: $("#storeId").val(), queueNumber: queueNumber},
       success: function(response){
         //Manipulate and remove the selected queueNumber div
         $("#div"+queueNumber).remove();
@@ -118,9 +137,9 @@ function deleteQueueNumber(queueNumber){
 function recallNumber(queueNumber){
   jQuery.ajax({
       type:'post',
-      url: "recall.php",
+      url: "/QueueManagementSystem/QMS/php/recall.php",
       dataType: "json",
-      data: {queueNumber: queueNumber},
+      data: {storeId: $("#storeId").val(), queueNumber: queueNumber},
       success: function(response){
         //Manipulate and remove the selected queueNumber div
         swal(response.status);
