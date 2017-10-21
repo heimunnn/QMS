@@ -8,7 +8,7 @@ $(document).ready(function() {
 	$.ajax
 	   ({
 		  type:'post',
-		  url:'/QueueManagementSystem/QMS/php/retrieve.php',
+		  url:'/QMS/php/retrieve.php',
 		  data: {storeId: $("#storeId").val()},
 		  dataType: "json",
 		  success:function(response) {
@@ -22,7 +22,7 @@ $(document).ready(function() {
 				  $.ajax
 					   ({
 						  type:'post',
-						  url:'/QueueManagementSystem/QMS/php/updateNew.php',
+						  url:'/QMS/php/updateNew.php',
 						  dataType: "json",
 						  data: {storeId: $("#storeId").val(), queueNumber: response[i].queueNumber}
 					 });
@@ -71,7 +71,7 @@ $(document).ready(function() {
 	 {		
 		$.ajax ({
 		  type:'post',
-		  url:'/QueueManagementSystem/QMS/php/retrieve.php',
+		  url:'/QMS/php/retrieve.php',
 		  data: {storeId: $("#storeId").val()},
 		  dataType: "json",
 		  success:function(response){

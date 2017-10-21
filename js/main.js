@@ -86,7 +86,7 @@ function retrieveStore() {
   $.ajax
   	   ({
   		  type:'post',
-  		  url:'/QueueManagementSystem/QMS/php/retrieve.php',
+  		  url:'/QMS/php/retrieve.php',
 		  data: {storeId: $("#storeId").val()},
   		  dataType: "json",
   		  success:function(response) {
@@ -106,7 +106,7 @@ function addQueueNumber(queueNumber) {
 	//function for adding to DB
 	 $.ajax({
 		 type: 'POST',
-		 url: '/QueueManagementSystem/QMS/php/insert.php',
+		 url: '/QMS/php/insert.php',
 		 dataType: 'json',
 		 data: {storeId: $("#storeId").val(), queueNumber: queueNumber},
 		 //if successful, do something
@@ -123,7 +123,7 @@ function addQueueNumber(queueNumber) {
 function deleteQueueNumber(queueNumber){
   jQuery.ajax({
       type:'post',
-      url: "/QueueManagementSystem/QMS/php/complete.php",
+      url: "/QMS/php/complete.php",
       dataType: "json",
       data: {storeId: $("#storeId").val(), queueNumber: queueNumber},
       success: function(response){
@@ -138,7 +138,7 @@ function deleteQueueNumber(queueNumber){
 function recallNumber(queueNumber){
   jQuery.ajax({
       type:'post',
-      url: "/QueueManagementSystem/QMS/php/recall.php",
+      url: "/QMS/php/recall.php",
       dataType: "json",
       data: {storeId: $("#storeId").val(), queueNumber: queueNumber},
       success: function(response){

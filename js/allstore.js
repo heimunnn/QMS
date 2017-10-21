@@ -21,7 +21,7 @@ $(document).ready(function() {
 	{		
 		$.ajax ({
 		  type:'post',
-		  url:'/QueueManagementSystem/QMS/php/retrieve.php',
+		  url:'/QMS/php/retrieve.php',
 		  data: {storeId: storeId},
 		  dataType: "json",
 		  success:function(response){
