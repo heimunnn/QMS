@@ -17,7 +17,7 @@ $(document).ready(function() {
 				// Manipulate and append it to the Queue Board
 				if(response[i].alarm == 'True')
 				{
-				  new Audio("audio/doorbell-1.wav").play();
+				  new Audio("/QMS/audio/doorbell-1.wav").play();
 				  $(".queueNumber"+i).effect( "pulsate", {times:5}, 3000 );
 				  $.ajax
 					   ({
@@ -25,7 +25,7 @@ $(document).ready(function() {
 						  url:'/QMS/php/updateNew.php',
 						  dataType: "json",
 						  data: {storeId: $("#storeId").val(), queueNumber: response[i].queueNumber}
-					 });
+						});
 				}
 
 				var queueNumber0 = $("#queueNumber0").val();
@@ -50,23 +50,16 @@ $(document).ready(function() {
 
 				if(response[i].status == 'True')
 				{
-					// Make the Box flash or highlight background
-				   new Audio("audio/doorbell-1.wav").play();
+					// Make the number pulsate
+				   new Audio("/QMS/audio/doorbell-1.wav").play();
 				   $(".queueNumber"+i).effect( "pulsate", {times:5}, 3000 );
 				}
 			 }
-	   }
-
-	 });
+			}
+		});
 	}
-	setInterval(ajax_call, 8000);
-	 
-	 
-	 
-	 
-	 
-	 
-	 
+	setInterval(ajax_call, 8000);	 
+	 	 
 	 function retrieveStore()
 	 {		
 		$.ajax ({
@@ -82,13 +75,12 @@ $(document).ready(function() {
 				$('#queueNumber'+i).val(response[i].queueNumber);
 				if(response[i].status == 'TRUE')
 				{
-					// Make the Box flash or highlight background
+					// Make the number pulsate
 					$("#queueNumber"+i).effect( "pulsate", {times:5}, 3000 );
 				}
 			 }
-	    }
-	 });
-	 
+			}
+		});
 	}
 	 
 	 function diff(a1, a2)
